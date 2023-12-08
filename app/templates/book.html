@@ -1,0 +1,118 @@
+{%extends "base.html"%}
+
+{% block title %} NXADESIGNS | Book Me {% endblock %}
+
+{% block content %}
+
+<h1> BOOK </h1>
+<br>
+<div class="container-fluid px-5">
+    <div class="row">
+        <div class="col-7 text-align-left">
+            <h2>
+                Thank you for sending through an enquiry!
+            </h2>
+            <h5>
+                Please make your input as detailed as possible, as it helps me to have a better understanding of what
+                you're requesting and helps us both in the long run :)
+            </h5>
+            <br>
+            <h3>
+                Also please note that following your booking you will be required to send through a £30 deposit to
+                confirm you wish to proceed with the design process. <span
+                    style="background-color: #ff80ce; color: #131313;">Until this is paid your commission will not be
+                    started</span>
+            </h3>
+            <br><br>
+            <h3>Besitos!</h3>
+            <img src="/static/logo2.png" width="200px" style="
+                position: relative;
+                margin-top: 200px;" alt="">
+        </div>
+        <div class="col-5">
+            <div class="booking">
+                <form action="/book-conf" method="get">
+
+                    <h5>Name</h5>
+                    <input type="text"> <br><br>
+                    <h5>Email</h5>
+                    <input type="email" name="" id="">
+                    <br><br>
+                    <h5>Service required? </h5>
+                    <label for="logo"><input type="checkbox" name="" id="logo">logo - £60 </label><br>
+                    <label for="webDes"><input type="checkbox" name="" id="webDes"> web design - £80 </label><br>
+                    <label for="brandKit"><input type="checkbox" name="" id="brandKit"> branding kit - £100 </label><br>
+                    <label for="cards"><input type="checkbox" name="" id="cards"> business card printing -
+                        £50</label><br>
+
+                    <h5>Any comments or concerns?</h5>
+
+                    <textarea> </textarea>
+                    <br><br><input type="submit" value="Book Me" class="btn btn-outline-dark align-right">
+                </form>
+
+
+                <!--Hey, enter name
+    Thank you for booking me! I really appreciate it, I will process
+    your order and get in touch with you soon
+
+    Besitos!
+
+    Marie | NXADESIGNS
+-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3">
+      </div>
+    </div>
+    <fieldset class="row mb-3">
+      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            First radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Second radio
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+          <label class="form-check-label" for="gridRadios3">
+            Third disabled radio
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <div class="row mb-3">
+      <div class="col-sm-10 offset-sm-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck1">
+          <label class="form-check-label" for="gridCheck1">
+            Example checkbox
+          </label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+
+{%endblock%}

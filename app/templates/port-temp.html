@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+
+{% block title %} NXADESIGNS | Portfolio{% endblock %}
+
+{% block content %}
+
+<h1> WeLit Entertainment </h1>
+<br>
+<div class="container-fluid px-5">
+    <div class="row cols-lg">
+        <div class="col-sm-4">
+            <img src="{{imgPathMain}}" class="w-75" alt="">
+            <br><br>               <h2>review:</h2> 
+
+            <div style="background-color: #ffffff; color: #131313; margin-bottom: 30px; font-style: italic;">
+               {{review}}
+            </div></div>
+        <div class="col-sm-7 px-8">
+            <h2>about the project</h2>
+            <div style="text-align: left" class="border p-3 w-65">
+                
+                {{desc}}
+            </div>
+            <br><br>
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-sm-4">
+                        <img src="{{imgPath1}}" class="w-100" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{imgPath2}}" class="w-100">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{imgPath3}}" class="w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{%endblock%}
