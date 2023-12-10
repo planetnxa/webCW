@@ -5,6 +5,7 @@ class Order(db.Model):
     cust_email = db.Column(db.String(500), index=True, unique=True)
     address = db.Column(db.String(500), index=True, unique=True)
     stock_bought = db.Column(db.String(500), index=True, unique=True)
+    service_or_stock = db.Column(db.String(500), index=True, unique=True)    
     date = db.Column(db.DateTime)
     cost = db.Column(db.Float)
 
