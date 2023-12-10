@@ -1,6 +1,8 @@
 from app import app
-from flask import render_template, request, session
+from flask import render_template, request, session,redirect,url_for
+from datetime import datetime
 from sqlalchemy import func
+import smtplib
 # import db for context purposes, and place databse work in the actual application functions
 
 # initialise these at -1 so when we start we can differentiate between no input, and zero values
@@ -53,10 +55,100 @@ def port_miaakrylics():
     descTxt = "a nice snazzy example text"
     return render_template("port-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
+#################
+@app.route("/shop-crzn1")
+def shop_crzn1():
+    imgPathMain="/static/mkVis/3b.jpg"
+    imgPath1="/static/mkVis/1a.jpg"
+    imgPath2="/static/mkVis/2-08.jpg" 
+    imgPath3="/static/mkVis/1b.jpg"
+    revTxt = "lil review vieeeww"
+    descTxt = "a nice snazzy example text"
+    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
-@app.route("/book-me")
+@app.route("/shop-crzn2")
+def shop_crzn2():
+    imgPathMain="/static/mkVis/3b.jpg"
+    imgPath1="/static/mkVis/1a.jpg"
+    imgPath2="/static/mkVis/2-08.jpg" 
+    imgPath3="/static/mkVis/1b.jpg"
+    revTxt = "lil review vieeeww"
+    descTxt = "a nice snazzy example text"
+    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+
+@app.route("/shop-crzn3")
+def shop_crzn3():
+    imgPathMain="/static/mkVis/3b.jpg"
+    imgPath1="/static/mkVis/1a.jpg"
+    imgPath2="/static/mkVis/2-08.jpg" 
+    imgPath3="/static/mkVis/1b.jpg"
+    revTxt = "lil review vieeeww"
+    descTxt = "a nice snazzy example text"
+    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+
+
+@app.route("/shop-crzn4")
+def shop_crzn4():
+    imgPathMain="/static/mkVis/3b.jpg"
+    imgPath1="/static/mkVis/1a.jpg"
+    imgPath2="/static/mkVis/2-08.jpg" 
+    imgPath3="/static/mkVis/1b.jpg"
+    revTxt = "lil review vieeeww"
+    descTxt = "a nice snazzy example text"
+    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+
+@app.route("/shop-brwn1")
+def shop_brwn1():
+    imgPathMain="/static/mkVis/3b.jpg"
+    imgPath1="/static/mkVis/1a.jpg"
+    imgPath2="/static/mkVis/2-08.jpg" 
+    imgPath3="/static/mkVis/1b.jpg"
+    revTxt = "lil review vieeeww"
+    descTxt = "a nice snazzy example text"
+    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+
+@app.route("/shop-brwn2")
+def shop_brwn2():
+    imgPathMain="/static/mkVis/3b.jpg"
+    imgPath1="/static/mkVis/1a.jpg"
+    imgPath2="/static/mkVis/2-08.jpg" 
+    imgPath3="/static/mkVis/1b.jpg"
+    revTxt = "lil review vieeeww"
+    descTxt = "a nice snazzy example text"
+    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+
+
+@app.route("/bookshopme", methods=["POST","GET"])
 def book():
-    return render_template("book.html")
+    if request.method == "POST":
+        #if we are collecting data
+        date = datetime.datetime.utcnow()
+        reqList = request.form.getlist("req")
+        cmt = request.form[""]
+        mailAdre = request.form["email"]
+        name = request.form["name"]
+        cmts = request.form["txt"]
+
+        msg = "Hey"+name+"! \n Thank you for your enquiry, I really appreciate it.", 
+        "In about two days I will get back to you about your enquiry. Until then," 
+        "please pay the £30 deposit into my deposit via paypal.  \n\n\n I can't wait to work with you!"
+        "\n\n Marie| NXADESIGNS"
+
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login("nxadesigns1@gmail.com", "N395dkeX.")
+        server.sendmail("nxadesigns1@gmail.com",mailAdre,message)
+
+        #make database entry
+        #input it,, make session
+
+       # db.session.add(p)
+        # db.session.commit()
+
+
+    else:
+
+        return render_template("book.html")
 
 
 @app.route("/book-conf")
@@ -68,14 +160,30 @@ def book_conf():
 def shop():
     return render_template("shop.html")
 
+adminMsg = ""
 
-@app.route("/admin")
+@app.route("/admin", methods={"POST", "GET"})
 def admin():
-    return render_template("admin.html")
+    if request.method == "POST":
+        password = request.form["pw"]
+        if password != "123":
+            adminMsg = "incorrect password try again"
+            return render_template("admin.html",pwMessage=adminMsg)
+        else:
+            session["admin"] = password
+            return render_template("admin-view.html")
+    else:
+        return render_template("admin.html",pwMessage="")
 
 
-@app.route("/admin-view")
+@app.route("/admin-view", methods={"POST", "GET"})
 def admin_orders():
-    return render_template("admin-view.html")
-
+    if request.method == "POST":
+        session.pop("admin",None)
+        return redirect(url_for("admin_orders"))
+    else:
+        if "admin" in session:
+            return render_template("admin-view.html")
+        else:
+            return render_template("admin.html",pwMessage="")
     # intialise the other balances and values etc

@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+
+{% block title %} NXADESIGNS | Shop{% endblock %}
+
+{% block content %}
+
+<br>
+<div class="container-fluid px-5">
+    <div class="row">
+        <div class="col-md-7">
+            <h1> {{shopName}}</h1>
+            <div class="container border p-3">
+               {{shopDesc}}
+            </div>
+            <br><br>
+            <h1>price: £{{shopPrice}}</h1>
+            <br><br>
+            <div class="container">
+                <div class="row row-cols-3">
+                    <div class="col">
+                        <img src="{{shopImg1}}" class="w-100 border" alt="">
+                    </div>
+                    <div class="col">
+                        <img src="{{shopImg2}}" class="w-100 border" alt="">
+                    </div>
+                    <div class="col">
+                        <img src="{{shopImg3}}" class="w-100 border" alt="">
+
+                    </div>
+                </div>
+            </div>
+                    
+        <br><br>
+        <a href="/paysect" class="btn btn-outline-light col-3">BUY</button>
+</div>
+        <div class="col-md-5">
+            <img src="{{shopImg0}}" alt="" class="w-75 p-5">
+        </div>
+
+    </div>
+</div>
+</div>
+
+{%endblock%}

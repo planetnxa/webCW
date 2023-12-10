@@ -31,23 +31,23 @@
         </div>
         <div class="col-5">
             <div class="booking">
-                <form action="/book-conf" method="get">
+                <form action="/book-me" method="POST">
 
                     <h5>Name</h5>
-                    <input type="text"> <br><br>
+                    <input type="text" name="name" required> <br><br>
                     <h5>Email</h5>
-                    <input type="email" name="" id="">
+                    <input type="email" name="email" id="" required>
                     <br><br>
                     <h5>Service required? </h5>
-                    <label for="logo"><input type="checkbox" name="" id="logo">logo - £60 </label><br>
-                    <label for="webDes"><input type="checkbox" name="" id="webDes"> web design - £80 </label><br>
-                    <label for="brandKit"><input type="checkbox" name="" id="brandKit"> branding kit - £100 </label><br>
-                    <label for="cards"><input type="checkbox" name="" id="cards"> business card printing -
+                    <label for="logo"><input type="checkbox" name="req" value="logo">logo - £60 </label><br>
+                    <label for="webDes"><input type="checkbox" name="req" value="webDes"> web design - £80 </label><br>
+                    <label for="brandKit"><input type="checkbox" name="req" value="brandKit"> branding kit - £100 </label><br>
+                    <label for="cards"><input type="checkbox" name="req" value="cards"> business card printing -
                         £50</label><br>
 
                     <h5>Any comments or concerns?</h5>
 
-                    <textarea> </textarea>
+                    <textarea name="txt"> </textarea>
                     <br><br><input type="submit" value="Book Me" class="btn btn-outline-dark align-right">
                 </form>
 
@@ -63,5 +63,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
 {%endblock%}

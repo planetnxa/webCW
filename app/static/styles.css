@@ -45,6 +45,8 @@ main{
 .shop .card{
 border-radius: 0%; 
     max-width:440px;
+    min-width: 400px;
+
     height: 584px;
     
 }
@@ -52,6 +54,8 @@ border-radius: 0%;
 .port .card{
     max-width: 440px;
     height: 550px;
+    min-width: 400px;
+
 }
 
 .card img{

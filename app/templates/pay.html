@@ -1,0 +1,47 @@
+{%extends "base.html"%}
+
+{% block title %} NXADESIGNS | Buy {% endblock %}
+
+{% block content %}<form action="/pay-conf" method="post">
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Name</h5>
+                <input type="text" name="name" required> <br><br>
+                <h5>Email</h5>
+                <input type="email" name="email" id="" required>
+                <br><br>
+                <h5>First line of Address</h5>
+                <input type="text">
+                <h5>Second line of Address</h5>
+                <input type="text">
+                <h5>City</h5>
+                <input type="text">
+                <h5>Phone Number</h5>
+                <input type="number">
+                <h5>Postcode</h5>
+                <input type="text">
+                <h5>Do you have any specific order/delivery requiremetns</h5>
+
+
+                <textarea name="txt"> </textarea>
+                <br><br>
+            </div>
+
+
+            <div class="col">
+                item - {{itemName}}
+                <br><br>
+                total - {{itemPrice}}
+
+                <a href="paypal">paylpal</a>
+
+                <input type="submit" value="Place Order" class="btn btn-outline-dark align-right">
+            
+            </div>
+        </div>
+    </div>
+</form>
+
+{%endblock%}
