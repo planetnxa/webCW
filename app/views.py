@@ -58,67 +58,73 @@ def port_miaakrylics():
 #################
 @app.route("/shop-crzn1")
 def shop_crzn1():
-    imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
-    imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
-    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+    shopName="CORAZON HOODIE"
+    shopDesc="123"
+    shopPrice="223"
+    # just pass in the object lool, for name price and count
+    #if item count is 0
+    
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3)
 
 @app.route("/shop-crzn2")
 def shop_crzn2():
-    imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
-    imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
-    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+   
+   
+    shopName="CORAZON HOODIE"
+    shopDesc="123"
+    shopPrice="223"
+    # just pass in the object lool, for name price and count
+    #if item count is 0
+    
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3)
 
 @app.route("/shop-crzn3")
 def shop_crzn3():
-    imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
-    imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
-    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+    
+    shopName="CORAZON HOODIE"
+    shopDesc="123"
+    shopPrice="223"
+    # just pass in the object lool, for name price and count
+    #if item count is 0
+    
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg3=imgPath2, shopImg2=imgPath3)
 
 
 @app.route("/shop-crzn4")
 def shop_crzn4():
-    imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
-    imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
-    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+    
+    shopName="CORAZON HOODIE"
+    shopDesc="123"
+    shopPrice="223"
+    # just pass in the object lool, for name price and count
+    #if item count is 0
+    
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg3=imgPath2, shopImg2=imgPath3)
 
 @app.route("/shop-brwn1")
 def shop_brwn1():
-    imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
-    imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
-    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+    
+    shopName="CORAZON HOODIE"
+    shopDesc="123"
+    shopPrice="223"
+    # just pass in the object lool, for name price and count
+    #if item count is 0
+    
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3)
 
 @app.route("/shop-brwn2")
 def shop_brwn2():
-    imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
-    imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
-    return render_template("shop-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
+    
+    shopName="CORAZON HOODIE"
+    shopDesc="123"
+    shopPrice="223"
+    # just pass in the object lool, for name price and count
+    #if item count is 0
+    
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg3=imgPath2, shopImg2=imgPath3)
+0
 
-
-@app.route("/bookshopme", methods=["POST","GET"])
+@app.route("/book-me", methods=["POST","GET"])
 def book():
     if request.method == "POST":
         #if we are collecting data
@@ -145,7 +151,6 @@ def book():
        # db.session.add(p)
         # db.session.commit()
 
-
     else:
 
         return render_template("book.html")
@@ -159,9 +164,7 @@ def book_conf():
 @app.route("/shop")
 def shop():
     return render_template("shop.html")
-
-adminMsg = ""
-
+############################################################
 @app.route("/admin", methods={"POST", "GET"})
 def admin():
     if request.method == "POST":

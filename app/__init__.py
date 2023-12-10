@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 
-from app import views
+from app import views,models
 
 #initialising the Flask object and then importing views so we can see the html web visuals
 # the flask object is called app
