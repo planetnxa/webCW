@@ -49,18 +49,22 @@ def port_welit():
     portAlt = "poster for we lit entertainment. 5 black people posing in a picture, they look happy"
     portAlt1="green and grey graphic with stylised text saying weLit Entertainment, est 2023. Paragraphic text at the bottom explaining the concept behind the brand, as per project description"
     portAlt2="black background with metallic stylised text saying we Lit, with standard text on the word entertainment"
-    portAlt3= "greyscale image of a closeup on a black person's mouth with metallic grilled teeth. In front says we Lit in flat bubble stylised text. The word entertainment is written in normal txt"
+    portAlt3= "greyscale image of a closeup on a black person's mouth with metallic grilled teeth. In front says we Lit in flat bubble stylised text. The word entertainment is written in normal text"
     return render_template("port-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
 
 @app.route("/port-miakrylics")
 def port_miaakrylics():
     imgPathMain="/static/mkVis/3b.jpg"
-    imgPath1="/static/mkVis/1a.jpg"
+    imgPath3="/static/mkVis/1a.jpg"
     imgPath2="/static/mkVis/2-08.jpg" 
-    imgPath3="/static/mkVis/1b.jpg"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
+    imgPath1="/static/mkVis/1b.jpg"
+    revTxt = "Can we take a moment to appreciate the colour scheme on this design? the orange gradients? the peaches? the perfect brown? Give Miakrylics her flowers!"
+    descTxt = "This one is for my girlies! Miakrylics is your new favourite salon. based on Anywhere street, Cental Nondon, this is the perfect place to come and get your acrylics, manis, pedis and of course, more than enough tea, and gossip!"
+    portAlt = "poster saying appointments out now for nail salon miakrylics. Includes cartoon graphic with hand holding crystal ball"
+    portAlt1 = "logo for the brand MIAKRYLICS orange and yellow and red blur gradient with the letters MK in white at the front. brown text saying miakrylics overlays the white letters"
+    portAlt2 = "3 phone mock-ups, with miakrylics assets on them."
+    portAlt3 = "2 business cards with the Miakrylics logo and colour scheme printed on top. The other card has a pink-gloved hand on it."
     return render_template("port-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
 #################
