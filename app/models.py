@@ -3,6 +3,7 @@ from app import db
 #you can see the relationship tween order and what stock they have bought
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(500), index=True, unique=True)
     cust_email = db.Column(db.String(500), index=True, unique=True)
     address = db.Column(db.String(500), index=True, unique=True)
     stock_bought = db.Column(db.String(500), index=True, unique=True)

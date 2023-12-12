@@ -1,4 +1,4 @@
-from app import app
+from app import app,db, models
 from flask import render_template, request, session,redirect,url_for
 from datetime import datetime
 from sqlalchemy import func
@@ -68,103 +68,58 @@ def port_miaakrylics():
     return render_template("port-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
 #################
+def shop_crzn(shopName,shopDesc,shopPrice,imgPath,imgPath1,
+imgPath2,imgPath3,altDesc,altDesc1,altDesc2,altDesc3):
+    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, 
+    shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3,
+    altDesc=altDesc,altDesc1=altDesc1,altDesc2=altDesc2,altDesc3=altDesc3)
+
+
+
+
 @app.route("/shop-crzn1")
 def shop_crzn1():
-    shopName="CORAZON HOODIE"
-    shopDesc="123"
-    shopPrice="223"
-    # just pass in the object lool, for name price and count
-    #if item count is 0
-    
-    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3)
+    # This route seems to be incomplete, but if you want to call shop_crzn with specific arguments, provide them here
+    return shop_crzn("Corazon Hoodie 1", "Your new favourite hoodie is here! introducing corazon, a Christian clothing brand for everyone & everyone! ", 
+    "60", "/static/crzn/hoodie01.jpg", "/static/crzn/igposts-01.jpg", "/static/crzn/ig12.jpg", "/static/crzn/ig9.jpg","front and back of black corazon hoodie. ",
+    "front and back of corazon hoodie, with stylised text saying corazon and 1 corinthians 13", "back of corazon hoodie, including blue and purple heart splatter", "front of corazon hoodie, saying  corazon, with varying assets and the letter a having the colured gradient")
 
 @app.route("/shop-crzn2")
 def shop_crzn2():
-   
-   
-    shopName="CORAZON HOODIE"
-    shopDesc="123"
-    shopPrice="223"
-    # just pass in the object lool, for name price and count
-    #if item count is 0
-    
-    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3)
+    return shop_crzn("Corazon Hoodie 2","From the makers of the first corazon hoodie, here is the second one! with even more purple and blue corazony goodness!" , 
+    "60", "/static/crzn/hoodie02.jpg", "/static/crzn/igposts-01.jpg", "/static/crzn/ig11.jpg", "/static/crzn/ig10.jpg", "front and back or second corazon hoodie", 
+    "stylised corazon poster, with hoodies,black text saying corazon, and the words 1 corinthians 13", "back of corazon hoodie, varying blue assets with scripture word", "front of hoodie, minimalist with heart splatter, with stylised words corazon")
+
 
 @app.route("/shop-crzn3")
 def shop_crzn3():
-    
-    shopName="CORAZON HOODIE"
-    shopDesc="123"
-    shopPrice="223"
-    # just pass in the object lool, for name price and count
-    #if item count is 0
-    
-    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg3=imgPath2, shopImg2=imgPath3)
-
-
-@app.route("/shop-crzn4")
-def shop_crzn4():
-    
-    shopName="CORAZON HOODIE"
-    shopDesc="123"
-    shopPrice="223"
-    # just pass in the object lool, for name price and count
-    #if item count is 0
-    
-    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg3=imgPath2, shopImg2=imgPath3)
-
-@app.route("/shop-brwn1")
-def shop_brwn1():
-    
-    shopName="CORAZON HOODIE"
-    shopDesc="123"
-    shopPrice="223"
-    # just pass in the object lool, for name price and count
-    #if item count is 0
-    
-    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg2=imgPath2, shopImg3=imgPath3)
-
-@app.route("/shop-brwn2")
-def shop_brwn2():
-    
-    shopName="CORAZON HOODIE"
-    shopDesc="123"
-    shopPrice="223"
-    # just pass in the object lool, for name price and count
-    #if item count is 0
-    
-    return render_template("shop-temp.html", shopDesc=shopDesc, shopName=shopName, shopPrice=shopPrice, shopImg0=imgPath, shopImg1=imgPath1, shopImg3=imgPath2, shopImg2=imgPath3)
-0
+    return shop_crzn("Corazon Tee Shirt", "For our stylers! Here's our Corazon T-shirt. You thought this was the last of us? stay tuned!", 
+    "60", "/static/crzn/tee03.jpg", "/static/crzn/igposts-01.jpg", "/static/crzn/splat.png", "/static/crzn/igposts-03.jpg", "t shirt designs for corazon",
+    "stylised corazon poster, with hoodies,black text saying corazon, and the words 1 corinthians 13", "blue and puple warpped heart, text saying nxadesigns beneath",
+    "heart shaped assets for corazon brand design, including bible verse 1 corithians 13")
 
 @app.route("/book-me", methods=["POST","GET"])
 def book():
     if request.method == "POST":
         #if we are collecting data
-        date = datetime.datetime.utcnow()
+        date = datetime.utcnow()
         reqList = request.form.getlist("req")
         #find price of everything selected from string and pick up 4rm ther
-        cmt = request.form[""]
+        cmt = request.form["txt"]
         mailAdre = request.form["email"]
         name = request.form["name"]
         cmts = request.form["txt"]
 
-        
-        cost = db.Column(db.Float)
-
-
-        s = models.Orders(cust_email=mailAdre,stock_bought=reqList,service_or_stock="service",date=datetime.datetime.utcnow())
+        s = models.Order(name=name,cust_email=mailAdre,stock_bought=reqList[0],service_or_stock="service",date=datetime.utcnow())
 
         msg = "Hey"+name+"! \n Thank you for your enquiry, I really appreciate it.", 
         "In about two days I will get back to you about your enquiry. Until then," 
         "please pay the £30 deposit into my deposit via paypal.  \n\n\n I can't wait to work with you!"
         "\n\n Marie| NXADESIGNS"
+        db.session.add(s)
+        db.session.commit()
+        return render_template("book-confirmation.html")
 
-    
-        #make database entry
-        #input it,, make session
-
-       # db.session.add(p)
-        # db.session.commit()
 
     else:
 
@@ -175,11 +130,17 @@ def book():
 def book_conf():
     return render_template("book-confirmation.html")
 
+@app.route("/paysect")
+def pay():
+    return render_template("pay.html")
 
 @app.route("/shop")
 def shop():
     return render_template("shop.html")
+
 ############################################################
+
+
 @app.route("/admin", methods={"POST", "GET"})
 def admin():
     if request.method == "POST":
