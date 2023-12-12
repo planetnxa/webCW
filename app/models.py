@@ -1,5 +1,6 @@
 from app import db
 
+#you can see the relationship tween order and what stock they have bought
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cust_email = db.Column(db.String(500), index=True, unique=True)
@@ -9,6 +10,7 @@ class Order(db.Model):
     date = db.Column(db.DateTime)
     cost = db.Column(db.Float)
 
+#can be ordereed many times..draw the tables
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(500), index=True, unique=True)
@@ -21,9 +23,9 @@ class Cust(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(500), index=True, unique=True)
     email = db.Column(db.String(500), index=True, unique=True)
+    phone = db.Column(db.Integer)
     orders_list = db.Column(db.String(500), index=True, unique=True)
-    count = db.Column(db.Integer)
-    cost = db.Column(db.Float)
+
 
 class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)

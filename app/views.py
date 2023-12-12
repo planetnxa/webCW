@@ -29,8 +29,12 @@ def port_abstudio():
     imgPath1="/static/abfinals/LOGO.png"
     imgPath2="/static/abfinals/beigeimg.jpg" 
     imgPath3="/static/abfinals/crdmock.png"
-    revTxt = "lil review vieeeww"
-    descTxt = "a nice snazzy example text"
+    revTxt = "another passion project. I thought it was 10/10. So did instagram, although I guess the likes didn't reflect that. None the less, this is definitely some of my best work"
+    descTxt = "Someone called for elegance! Inspired by neutrals and minimalism, ABStudios is a passion project for a photography studio where the priority is capturing unfiltered beauty, and finding simplicity in the complex that is our world"
+    portAlt="poster for AB studio. greyscale imag with elegant black woman with long body wave hair posing"
+    portAlt1="brown and cream graphic with stylised letters AB, with the word STUDIOS in capitals"
+    portAlt2="cream graphic with stylised letters AB, simple text saying STUDIOS, and a light skinned woman sitting on a chair with her feet out"
+    portAlt3="AB logo visualised in black on white card, leaning on cream fabric"
     return render_template("port-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
 
@@ -41,7 +45,11 @@ def port_welit():
     imgPath2="/static/weLit/metal.png" 
     imgPath3="/static/weLit/grillz.png"
     revTxt = "Another commission! I will not hold you this was waaay too good for me too not get booked. Nonetheless, this was such a fun project. Neutral, but fun"
-    descTxt = "a nice snazzy example text"
+    descTxt = "WeLit entertainment is a team of individuals dedicated to creating a good time for the urban community.As an extension of <<It's garra>>, WeLit work hard to provide quality events up North. They are for the people, by the people."
+    portAlt = "poster for we lit entertainment. 5 black people posing in a picture, they look happy"
+    portAlt1="green and grey graphic with stylised text saying weLit Entertainment, est 2023. Paragraphic text at the bottom explaining the concept behind the brand, as per project description"
+    portAlt2="black background with metallic stylised text saying we Lit, with standard text on the word entertainment"
+    portAlt3= "greyscale image of a closeup on a black person's mouth with metallic grilled teeth. In front says we Lit in flat bubble stylised text. The word entertainment is written in normal txt"
     return render_template("port-temp.html", desc=descTxt, review=revTxt, imgPathMain=imgPathMain, imgPath1=imgPath1, imgPath2=imgPath2, imgPath3=imgPath3)
 
 
@@ -130,21 +138,24 @@ def book():
         #if we are collecting data
         date = datetime.datetime.utcnow()
         reqList = request.form.getlist("req")
+        #find price of everything selected from string and pick up 4rm ther
         cmt = request.form[""]
         mailAdre = request.form["email"]
         name = request.form["name"]
         cmts = request.form["txt"]
+
+        
+        cost = db.Column(db.Float)
+
+
+        s = models.Orders(cust_email=mailAdre,stock_bought=reqList,service_or_stock="service",date=datetime.datetime.utcnow())
 
         msg = "Hey"+name+"! \n Thank you for your enquiry, I really appreciate it.", 
         "In about two days I will get back to you about your enquiry. Until then," 
         "please pay the £30 deposit into my deposit via paypal.  \n\n\n I can't wait to work with you!"
         "\n\n Marie| NXADESIGNS"
 
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()
-        server.login("nxadesigns1@gmail.com", "N395dkeX.")
-        server.sendmail("nxadesigns1@gmail.com",mailAdre,message)
-
+    
         #make database entry
         #input it,, make session
 
