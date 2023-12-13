@@ -6,7 +6,7 @@
 
 <br>
 <div class="container-fluid px-5">
-    <div class="row">
+    <div class="row row-cols-md-1">
         <div class="col-md-7">
             <h1> {{shopName}}</h1>
             <div class="container border p-3">
@@ -31,7 +31,11 @@
             </div>
                     
         <br><br>
-        <a href="/paysect" class="btn btn-outline-light col-3">BUY</a>
+        <form action="/paysect">
+        <input type="submit" value="BUY" class="btn btn-outline-light col-3">        
+    </form>
+
+        <br><br>
 </div>
         <div class="col-md-5">
             <img src="{{shopImg0}}" alt="{{altDesc}}" class="w-75 p-5">

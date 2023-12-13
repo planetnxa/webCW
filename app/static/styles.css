@@ -101,15 +101,18 @@ footer{
     text-align: center;
     margin: 0px;
 }
-
+.booking h5{
+    font-weight:bold;
+}
 .booking{
-    max-width: 600px;
-    height: 100%;
+    max-width: 650px;
+    height: fit-content;
     background-color: #ffffff;
     color: #131313;
     margin: auto;
     text-align: left;
     padding: 30px;
+    
 }
 
 input[type="text"],[type = "email"]{

@@ -21,44 +21,34 @@
         <th scope="col">Date</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Brandname</th>
         <th scope="col">Service Request</th>
         <th scope="col">Extra Comments</th>
 
 
-
+<!--
+  name = db.Column(db.String(500), index=True)
+    cust_email = db.Column(db.String(500), index=True, )
+    address = db.Column(db.String(500), index=True, )
+    stock_bought = db.Column(db.String(500), index=True, )
+    service_or_stock = db.Column(db.String(500), index=True)    
+    date = db.Column(db.DateTime)
+    cost = db.Column(db.Float)
+-->
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>1/1/2023</td>
-        <td>Jenelle</td>
-        <td>shesnotreal@gmail.com</td>
-        <td>HairbyJ</td>
-        <td>Logo, Business Cards</td>
-        <td>Must be pink by force</td>
+        {% for o in objs %}
+        <th scope="row">{{o.id}}</th>
+        <th>{{o.date}}</th>
+        <th>{{o.name}}</th>
+        <th>{{o.cust_email}}</th>
+        <th>{{o.stock_brought}}</th>
+        <th>"bruh"</th>
+        
+      </tr>        
+      {% endfor %}
 
-
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>n345@hotmail.com</td>
-        <td>HairbyK</td>
-        <td>Business Cards</td>
-        <td>Suprise</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry June</td>
-        <td>Lojay@leeds.ac.uk</td>
-        <td>HLarry June</td>
-        <td>no</td>
-        <td>noo</td>
-        <td>no</td>
-      </tr>
     </tbody>
   </table>
 </div>

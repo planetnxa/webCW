@@ -150,7 +150,7 @@ def admin():
             return render_template("admin.html",pwMessage=adminMsg)
         else:
             session["admin"] = password
-            return render_template("admin-view.html")
+            return render_template("admin-view.html",objs=models.Order.query.all())
     else:
         return render_template("admin.html",pwMessage="")
 
@@ -159,10 +159,10 @@ def admin():
 def admin_orders():
     if request.method == "POST":
         session.pop("admin",None)
-        return redirect(url_for("admin_orders"))
+        return redirect(url_for("admin"))
     else:
         if "admin" in session:
-            return render_template("admin-view.html")
+            return render_template("admin-view.html",objs=models.Order.query.all())
         else:
             return render_template("admin.html",pwMessage="")
     # intialise the other balances and values etc
